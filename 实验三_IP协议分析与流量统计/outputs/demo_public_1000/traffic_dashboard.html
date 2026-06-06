@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>IP 流量统计</title>
+  <style>
+    body { font-family: Arial, "Microsoft YaHei", sans-serif; margin: 24px; color: #202124; }
+    h1 { font-size: 24px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+    .panel { border: 1px solid #d9dde3; border-radius: 8px; padding: 16px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { border-bottom: 1px solid #eceff3; padding: 8px; text-align: left; }
+    th { background: #f6f8fa; }
+    .bar { height: 8px; background: #3367d6; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>IP 流量统计</h1>
+  <p>IPv4 包数量：1000；IP 地址数量：36</p>
+  <div class="grid">
+    <section class="panel">
+      <h2>接收包数量 Top IP</h2>
+      <div id="stats"></div>
+    </section>
+    <section class="panel">
+      <h2>源到目的流量 Top Flow</h2>
+      <div id="flows"></div>
+    </section>
+  </div>
+  <script>
+    const stats = [{"ip": "93.184.216.10", "sent_packets": 475, "received_packets": 525, "sent_bytes": 159092, "received_bytes": 92956, "total_packets": 1000, "total_bytes": 252048}, {"ip": "93.184.216.11", "sent_packets": 149, "received_packets": 186, "sent_bytes": 39703, "received_bytes": 110362, "total_packets": 335, "total_bytes": 150065}, {"ip": "93.184.216.12", "sent_packets": 260, "received_packets": 191, "sent_bytes": 33592, "received_bytes": 21501, "total_packets": 451, "total_bytes": 55093}, {"ip": "93.184.216.13", "sent_packets": 23, "received_packets": 18, "sent_bytes": 3803, "received_bytes": 10503, "total_packets": 41, "total_bytes": 14306}, {"ip": "93.184.216.14", "sent_packets": 32, "received_packets": 27, "sent_bytes": 9174, "received_bytes": 7314, "total_packets": 59, "total_bytes": 16488}, {"ip": "93.184.216.15", "sent_packets": 8, "received_packets": 7, "sent_bytes": 1343, "received_bytes": 3799, "total_packets": 15, "total_bytes": 5142}, {"ip": "93.184.216.16", "sent_packets": 2, "received_packets": 3, "sent_bytes": 1150, "received_bytes": 1639, "total_packets": 5, "total_bytes": 2789}, {"ip": "93.184.216.17", "sent_packets": 6, "received_packets": 5, "sent_bytes": 1067, "received_bytes": 1357, "total_packets": 11, "total_bytes": 2424}, {"ip": "93.184.216.18", "sent_packets": 4, "received_packets": 5, "sent_bytes": 741, "received_bytes": 1094, "total_packets": 9, "total_bytes": 1835}, {"ip": "93.184.216.19", "sent_packets": 4, "received_packets": 4, "sent_bytes": 534, "received_bytes": 239, "total_packets": 8, "total_bytes": 773}, {"ip": "93.184.216.20", "sent_packets": 1, "received_packets": 6, "sent_bytes": 40, "received_bytes": 240, "total_packets": 7, "total_bytes": 280}, {"ip": "93.184.216.21", "sent_packets": 4, "received_packets": 2, "sent_bytes": 227, "received_bytes": 155, "total_packets": 6, "total_bytes": 382}, {"ip": "93.184.216.22", "sent_packets": 4, "received_packets": 1, "sent_bytes": 208, "received_bytes": 41, "total_packets": 5, "total_bytes": 249}, {"ip": "93.184.216.23", "sent_packets": 3, "received_packets": 3, "sent_bytes": 158, "received_bytes": 151, "total_packets": 6, "total_bytes": 309}, {"ip": "93.184.216.24", "sent_packets": 2, "received_packets": 0, "sent_bytes": 104, "received_bytes": 0, "total_packets": 2, "total_bytes": 104}, {"ip": "93.184.216.25", "sent_packets": 2, "received_packets": 2, "sent_bytes": 104, "received_bytes": 82, "total_packets": 4, "total_bytes": 186}, {"ip": "93.184.216.26", "sent_packets": 2, "received_packets": 2, "sent_bytes": 104, "received_bytes": 82, "total_packets": 4, "total_bytes": 186}, {"ip": "93.184.216.27", "sent_packets": 2, "received_packets": 2, "sent_bytes": 104, "received_bytes": 82, "total_packets": 4, "total_bytes": 186}, {"ip": "93.184.216.28", "sent_packets": 1, "received_packets": 1, "sent_bytes": 52, "received_bytes": 41, "total_packets": 2, "total_bytes": 93}, {"ip": "93.184.216.29", "sent_packets": 1, "received_packets": 1, "sent_bytes": 52, "received_bytes": 41, "total_packets": 2, "total_bytes": 93}, {"ip": "93.184.216.30", "sent_packets": 1, "received_packets": 1, "sent_bytes": 52, "received_bytes": 41, "total_packets": 2, "total_bytes": 93}, {"ip": "93.184.216.31", "sent_packets": 1, "received_packets": 1, "sent_bytes": 52, "received_bytes": 41, "total_packets": 2, "total_bytes": 93}, {"ip": "93.184.216.32", "sent_packets": 1, "received_packets": 1, "sent_bytes": 52, "received_bytes": 41, "total_packets": 2, "total_bytes": 93}, {"ip": "93.184.216.33", "sent_packets": 1, "received_packets": 1, "sent_bytes": 52, "received_bytes": 41, "total_packets": 2, "total_bytes": 93}, {"ip": "93.184.216.34", "sent_packets": 1, "received_packets": 1, "sent_bytes": 52, "received_bytes": 41, "total_packets": 2, "total_bytes": 93}, {"ip": "93.184.216.35", "sent_packets": 1, "received_packets": 1, "sent_bytes": 52, "received_bytes": 41, "total_packets": 2, "total_bytes": 93}, {"ip": "93.184.216.36", "sent_packets": 1, "received_packets": 1, "sent_bytes": 52, "received_bytes": 41, "total_packets": 2, "total_bytes": 93}, {"ip": "93.184.216.37", "sent_packets": 1, "received_packets": 1, "sent_bytes": 52, "received_bytes": 41, "total_packets": 2, "total_bytes": 93}, {"ip": "93.184.216.38", "sent_packets": 0, "received_packets": 1, "sent_bytes": 0, "received_bytes": 41, "total_packets": 1, "total_bytes": 41}, {"ip": "93.184.216.39", "sent_packets": 1, "received_packets": 0, "sent_bytes": 40, "received_bytes": 0, "total_packets": 1, "total_bytes": 40}];
+    const flows = [{"src_ip": "93.184.216.10", "dst_ip": "93.184.216.11", "protocol": "TCP", "packets": 186, "bytes": 110362}, {"src_ip": "93.184.216.11", "dst_ip": "93.184.216.10", "protocol": "TCP", "packets": 149, "bytes": 39703}, {"src_ip": "93.184.216.12", "dst_ip": "93.184.216.10", "protocol": "TCP", "packets": 260, "bytes": 33592}, {"src_ip": "93.184.216.10", "dst_ip": "93.184.216.12", "protocol": "TCP", "packets": 191, "bytes": 21501}, {"src_ip": "93.184.216.10", "dst_ip": "93.184.216.13", "protocol": "TCP", "packets": 18, "bytes": 10503}, {"src_ip": "93.184.216.14", "dst_ip": "93.184.216.10", "protocol": "TCP", "packets": 32, "bytes": 9174}, {"src_ip": "93.184.216.10", "dst_ip": "93.184.216.14", "protocol": "TCP", "packets": 27, "bytes": 7314}, {"src_ip": "93.184.216.13", "dst_ip": "93.184.216.10", "protocol": "TCP", "packets": 23, "bytes": 3803}, {"src_ip": "93.184.216.10", "dst_ip": "93.184.216.15", "protocol": "TCP", "packets": 7, "bytes": 3799}, {"src_ip": "93.184.216.10", "dst_ip": "93.184.216.16", "protocol": "TCP", "packets": 3, "bytes": 1639}, {"src_ip": "93.184.216.10", "dst_ip": "93.184.216.17", "protocol": "TCP", "packets": 5, "bytes": 1357}, {"src_ip": "93.184.216.15", "dst_ip": "93.184.216.10", "protocol": "TCP", "packets": 8, "bytes": 1343}, {"src_ip": "93.184.216.16", "dst_ip": "93.184.216.10", "protocol": "TCP", "packets": 2, "bytes": 1150}, {"src_ip": "93.184.216.10", "dst_ip": "93.184.216.18", "protocol": "TCP", "packets": 5, "bytes": 1094}, {"src_ip": "93.184.216.17", "dst_ip": "93.184.216.10", "protocol": "TCP", "packets": 6, "bytes": 1067}, {"src_ip": "93.184.216.18", "dst_ip": "93.184.216.10", "protocol": "TCP", "packets": 4, "bytes": 741}, {"src_ip": "93.184.216.19", "dst_ip": "93.184.216.10", "protocol": "UDP", "packets": 4, "bytes": 534}, {"src_ip": "93.184.216.10", "dst_ip": "93.184.216.20", "protocol": "TCP", "packets": 6, "bytes": 240}, {"src_ip": "93.184.216.10", "dst_ip": "93.184.216.19", "protocol": "UDP", "packets": 4, "bytes": 239}, {"src_ip": "93.184.216.21", "dst_ip": "93.184.216.10", "protocol": "TCP", "packets": 4, "bytes": 227}, {"src_ip": "93.184.216.22", "dst_ip": "93.184.216.10", "protocol": "TCP", "packets": 4, "bytes": 208}, {"src_ip": "93.184.216.23", "dst_ip": "93.184.216.10", "protocol": "TCP", "packets": 3, "bytes": 158}, {"src_ip": "93.184.216.10", "dst_ip": "93.184.216.21", "protocol": "TCP", "packets": 2, "bytes": 155}, {"src_ip": "93.184.216.10", "dst_ip": "93.184.216.23", "protocol": "TCP", "packets": 3, "bytes": 151}, {"src_ip": "93.184.216.24", "dst_ip": "93.184.216.10", "protocol": "TCP", "packets": 2, "bytes": 104}, {"src_ip": "93.184.216.25", "dst_ip": "93.184.216.10", "protocol": "TCP", "packets": 2, "bytes": 104}, {"src_ip": "93.184.216.26", "dst_ip": "93.184.216.10", "protocol": "TCP", "packets": 2, "bytes": 104}, {"src_ip": "93.184.216.27", "dst_ip": "93.184.216.10", "protocol": "TCP", "packets": 2, "bytes": 104}, {"src_ip": "93.184.216.10", "dst_ip": "93.184.216.25", "protocol": "TCP", "packets": 2, "bytes": 82}, {"src_ip": "93.184.216.10", "dst_ip": "93.184.216.26", "protocol": "TCP", "packets": 2, "bytes": 82}];
+    function table(rows, columns) {
+      const html = ['<table><thead><tr>' + columns.map(c => `<th>${c.title}</th>`).join('') + '</tr></thead><tbody>'];
+      for (const row of rows) {
+        html.push('<tr>' + columns.map(c => `<td>${row[c.key] ?? ''}</td>`).join('') + '</tr>');
+      }
+      html.push('</tbody></table>');
+      return html.join('');
+    }
+    document.getElementById('stats').innerHTML = table(
+      stats.sort((a, b) => b.received_packets - a.received_packets).slice(0, 15),
+      [{key: 'ip', title: 'IP'}, {key: 'received_packets', title: '接收包'}, {key: 'received_bytes', title: '接收字节'}]
+    );
+    document.getElementById('flows').innerHTML = table(
+      flows.slice(0, 15),
+      [{key: 'src_ip', title: '源 IP'}, {key: 'dst_ip', title: '目的 IP'}, {key: 'protocol', title: '协议'}, {key: 'bytes', title: '字节'}]
+    );
+  </script>
+</body>
+</html>

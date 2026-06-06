@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>流量地图</title>
+  <style>
+    body { margin: 0; font-family: Arial, "Microsoft YaHei", sans-serif; color: #202124; background: #f8fafc; }
+    header { padding: 18px 24px; background: #ffffff; border-bottom: 1px solid #d8dee8; }
+    h1 { margin: 0 0 6px; font-size: 24px; }
+    main { padding: 18px 24px 28px; }
+    .map { background: #ffffff; border: 1px solid #d8dee8; border-radius: 8px; overflow: hidden; }
+    svg { width: 100%; height: auto; display: block; background: linear-gradient(180deg, #eef6ff, #ffffff); }
+    text { font-size: 13px; fill: #1f2937; paint-order: stroke; stroke: #fff; stroke-width: 3px; }
+    table { width: 100%; border-collapse: collapse; background: #ffffff; margin-top: 16px; font-size: 13px; }
+    th, td { padding: 8px 10px; border-bottom: 1px solid #e5e7eb; text-align: left; }
+    th { background: #f1f5f9; }
+    .note { color: #5f6b7a; margin: 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>流量地图</h1>
+    <p class="note">圆点大小表示地点相关包数量，连线粗细表示源地点到目的地点的字节数；鼠标悬停可查看具体流量。</p>
+  </header>
+  <main>
+    <section class="map">
+      <svg viewBox="0 0 960 560" role="img" aria-label="traffic map">
+        <defs>
+          <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L0,6 L10,3 z" fill="#d35400"></path>
+          </marker>
+        </defs>
+        <rect x="0" y="0" width="960" height="560" fill="transparent"></rect>
+        <line x1="492.1" y1="293.2" x2="483.0" y2="479.4" stroke="#d35400" stroke-width="6.50" stroke-opacity="0.72" marker-end="url(#arrow)"><title>武汉 -> 香港 | TCP | 186 packets | 110362 bytes</title></line><line x1="483.0" y1="479.4" x2="492.1" y2="293.2" stroke="#d35400" stroke-width="3.30" stroke-opacity="0.72" marker-end="url(#arrow)"><title>香港 -> 武汉 | TCP | 149 packets | 39703 bytes</title></line><line x1="137.1" y1="382.8" x2="492.1" y2="293.2" stroke="#d35400" stroke-width="3.02" stroke-opacity="0.72" marker-end="url(#arrow)"><title>贵阳 -> 武汉 | TCP | 260 packets | 33592 bytes</title></line><line x1="492.1" y1="293.2" x2="137.1" y2="382.8" stroke="#d35400" stroke-width="2.47" stroke-opacity="0.72" marker-end="url(#arrow)"><title>武汉 -> 贵阳 | TCP | 191 packets | 21501 bytes</title></line><line x1="492.1" y1="293.2" x2="460.6" y2="198.8" stroke="#d35400" stroke-width="2.15" stroke-opacity="0.72" marker-end="url(#arrow)"><title>武汉 -> 郑州 | TCP | 25 packets | 14302 bytes</title></line><line x1="483.2" y1="480.0" x2="492.1" y2="293.2" stroke="#d35400" stroke-width="1.92" stroke-opacity="0.72" marker-end="url(#arrow)"><title>荃湾 -> 武汉 | TCP | 32 packets | 9174 bytes</title></line><line x1="492.1" y1="293.2" x2="483.2" y2="480.0" stroke="#d35400" stroke-width="1.83" stroke-opacity="0.72" marker-end="url(#arrow)"><title>武汉 -> 荃湾 | TCP | 27 packets | 7314 bytes</title></line><line x1="460.6" y1="198.8" x2="492.1" y2="293.2" stroke="#d35400" stroke-width="1.73" stroke-opacity="0.72" marker-end="url(#arrow)"><title>郑州 -> 武汉 | TCP | 31 packets | 5146 bytes</title></line><line x1="492.1" y1="293.2" x2="444.0" y2="462.7" stroke="#d35400" stroke-width="1.57" stroke-opacity="0.72" marker-end="url(#arrow)"><title>武汉 -> 广州 | TCP | 3 packets | 1639 bytes</title></line><line x1="492.1" y1="293.2" x2="823.6" y2="278.7" stroke="#d35400" stroke-width="1.56" stroke-opacity="0.72" marker-end="url(#arrow)"><title>武汉 -> 上海 | TCP | 12 packets | 1375 bytes</title></line><line x1="492.1" y1="293.2" x2="698.7" y2="259.9" stroke="#d35400" stroke-width="1.56" stroke-opacity="0.72" marker-end="url(#arrow)"><title>武汉 -> 南京 | TCP | 5 packets | 1357 bytes</title></line><line x1="443.5" y1="463.0" x2="492.1" y2="293.2" stroke="#d35400" stroke-width="1.56" stroke-opacity="0.72" marker-end="url(#arrow)"><title>广州 -> 武汉 | TCP | 4 packets | 1254 bytes</title></line><line x1="699.7" y1="259.9" x2="492.1" y2="293.2" stroke="#d35400" stroke-width="1.55" stroke-opacity="0.72" marker-end="url(#arrow)"><title>南京 -> 武汉 | TCP | 9 packets | 1187 bytes</title></line><line x1="822.9" y1="278.9" x2="492.1" y2="293.2" stroke="#d35400" stroke-width="1.54" stroke-opacity="0.72" marker-end="url(#arrow)"><title>上海 -> 武汉 | TCP | 6 packets | 833 bytes</title></line><line x1="492.1" y1="293.2" x2="493.8" y2="294.3" stroke="#d35400" stroke-width="1.54" stroke-opacity="0.72" marker-end="url(#arrow)"><title>武汉 -> 武汉 | UDP | 8 packets | 773 bytes</title></line><line x1="585.7" y1="79.4" x2="492.1" y2="293.2" stroke="#d35400" stroke-width="1.53" stroke-opacity="0.72" marker-end="url(#arrow)"><title>北京海淀 -> 武汉 | TCP | 12 packets | 576 bytes</title></line><line x1="589.3" y1="81.7" x2="492.1" y2="293.2" stroke="#d35400" stroke-width="1.52" stroke-opacity="0.72" marker-end="url(#arrow)"><title>北京 -> 武汉 | TCP | 8 packets | 435 bytes</title></line><line x1="492.1" y1="293.2" x2="588.7" y2="81.6" stroke="#d35400" stroke-width="1.52" stroke-opacity="0.72" marker-end="url(#arrow)"><title>武汉 -> 北京 | TCP | 7 packets | 360 bytes</title></line><line x1="492.1" y1="293.2" x2="585.7" y2="79.4" stroke="#d35400" stroke-width="1.51" stroke-opacity="0.72" marker-end="url(#arrow)"><title>武汉 -> 北京海淀 | TCP | 8 packets | 328 bytes</title></line><line x1="763.1" y1="300.0" x2="492.1" y2="293.2" stroke="#d35400" stroke-width="1.51" stroke-opacity="0.72" marker-end="url(#arrow)"><title>杭州 -> 武汉 | TCP | 5 packets | 260 bytes</title></line><line x1="336.5" y1="154.6" x2="492.1" y2="293.2" stroke="#d35400" stroke-width="1.51" stroke-opacity="0.72" marker-end="url(#arrow)"><title>临汾 -> 武汉 | TCP | 3 packets | 158 bytes</title></line><line x1="492.1" y1="293.2" x2="336.5" y2="154.6" stroke="#d35400" stroke-width="1.51" stroke-opacity="0.72" marker-end="url(#arrow)"><title>武汉 -> 临汾 | TCP | 3 packets | 151 bytes</title></line><line x1="492.1" y1="293.2" x2="489.8" y2="292.7" stroke="#d35400" stroke-width="1.50" stroke-opacity="0.72" marker-end="url(#arrow)"><title>武汉 -> 武汉 | TCP | 2 packets | 93 bytes</title></line><line x1="492.1" y1="293.2" x2="763.1" y2="300.0" stroke="#d35400" stroke-width="1.50" stroke-opacity="0.72" marker-end="url(#arrow)"><title>武汉 -> 杭州 | TCP | 2 packets | 82 bytes</title></line><line x1="587.0" y1="81.6" x2="492.1" y2="293.2" stroke="#d35400" stroke-width="1.50" stroke-opacity="0.72" marker-end="url(#arrow)"><title>北京金融街 -> 武汉 | TCP | 1 packets | 52 bytes</title></line><line x1="492.1" y1="293.2" x2="587.0" y2="81.6" stroke="#d35400" stroke-width="1.50" stroke-opacity="0.72" marker-end="url(#arrow)"><title>武汉 -> 北京金融街 | TCP | 1 packets | 41 bytes</title></line>
+        <g><circle cx="492.1" cy="293.2" r="25.0" fill="#1f77b4" fill-opacity="0.78"><title>武汉 | IP: 93.184.216.10, 93.184.216.19, 93.184.216.37 | received: 530 packets</title></circle><text x="521.1" y="297.2">武汉</text></g><g><circle cx="483.0" cy="479.4" r="17.4" fill="#1f77b4" fill-opacity="0.78"><title>香港 | IP: 93.184.216.11 | received: 186 packets</title></circle><text x="504.4" y="483.4">香港</text></g><g><circle cx="137.1" cy="382.8" r="19.0" fill="#1f77b4" fill-opacity="0.78"><title>贵阳 | IP: 93.184.216.12 | received: 191 packets</title></circle><text x="160.2" y="386.8">贵阳</text></g><g><circle cx="460.6" cy="198.8" r="11.2" fill="#1f77b4" fill-opacity="0.78"><title>郑州 | IP: 93.184.216.13, 93.184.216.15 | received: 25 packets</title></circle><text x="475.9" y="202.8">郑州</text></g><g><circle cx="483.2" cy="480.0" r="11.4" fill="#1f77b4" fill-opacity="0.78"><title>荃湾 | IP: 93.184.216.14 | received: 27 packets</title></circle><text x="498.6" y="484.0">荃湾</text></g><g><circle cx="444.0" cy="462.7" r="8.5" fill="#1f77b4" fill-opacity="0.78"><title>广州 | IP: 93.184.216.16, 93.184.216.24 | received: 3 packets</title></circle><text x="456.5" y="466.7">广州</text></g><g><circle cx="698.7" cy="259.9" r="9.1" fill="#1f77b4" fill-opacity="0.78"><title>南京 | IP: 93.184.216.17, 93.184.216.41, 93.184.216.42, 93.184.216.44 | received: 5 packets</title></circle><text x="711.8" y="263.9">南京</text></g><g><circle cx="822.9" cy="278.9" r="9.4" fill="#1f77b4" fill-opacity="0.78"><title>上海 | IP: 93.184.216.18, 93.184.216.20, 93.184.216.36 | received: 12 packets</title></circle><text x="836.3" y="282.9">上海</text></g><g><circle cx="589.3" cy="81.7" r="9.2" fill="#1f77b4" fill-opacity="0.78"><title>北京 | IP: 93.184.216.21, 93.184.216.29, 93.184.216.31, 93.184.216.33, 93.184.216.35, 93.184.216.38 | received: 7 packets</title></circle><text x="602.5" y="85.7">北京</text></g><g><circle cx="763.1" cy="300.0" r="8.5" fill="#1f77b4" fill-opacity="0.78"><title>杭州 | IP: 93.184.216.22, 93.184.216.30 | received: 2 packets</title></circle><text x="775.6" y="304.0">杭州</text></g><g><circle cx="336.5" cy="154.6" r="8.4" fill="#1f77b4" fill-opacity="0.78"><title>临汾 | IP: 93.184.216.23 | received: 3 packets</title></circle><text x="348.8" y="158.6">临汾</text></g><g><circle cx="586.1" cy="80.0" r="9.5" fill="#1f77b4" fill-opacity="0.78"><title>北京海淀 | IP: 93.184.216.25, 93.184.216.26, 93.184.216.27, 93.184.216.32, 93.184.216.34, 93.184.216.39, 93.184.216.40, 93.184.216.43, 93.184.216.45 | received: 8 packets</title></circle><text x="599.6" y="84.0">北京海淀</text></g><g><circle cx="587.0" cy="81.6" r="7.8" fill="#1f77b4" fill-opacity="0.78"><title>北京金融街 | IP: 93.184.216.28 | received: 1 packets</title></circle><text x="598.8" y="85.6">北京金融街</text></g>
+      </svg>
+    </section>
+    <h2>地点间流量</h2>
+    <table>
+      <thead><tr><th>源地点</th><th>目的地点</th><th>协议</th><th>包数量</th><th>字节数</th></tr></thead>
+      <tbody><tr><td>武汉</td><td>香港</td><td>TCP</td><td>186</td><td>110362</td></tr>
+<tr><td>香港</td><td>武汉</td><td>TCP</td><td>149</td><td>39703</td></tr>
+<tr><td>贵阳</td><td>武汉</td><td>TCP</td><td>260</td><td>33592</td></tr>
+<tr><td>武汉</td><td>贵阳</td><td>TCP</td><td>191</td><td>21501</td></tr>
+<tr><td>武汉</td><td>郑州</td><td>TCP</td><td>25</td><td>14302</td></tr>
+<tr><td>荃湾</td><td>武汉</td><td>TCP</td><td>32</td><td>9174</td></tr>
+<tr><td>武汉</td><td>荃湾</td><td>TCP</td><td>27</td><td>7314</td></tr>
+<tr><td>郑州</td><td>武汉</td><td>TCP</td><td>31</td><td>5146</td></tr>
+<tr><td>武汉</td><td>广州</td><td>TCP</td><td>3</td><td>1639</td></tr>
+<tr><td>武汉</td><td>上海</td><td>TCP</td><td>12</td><td>1375</td></tr>
+<tr><td>武汉</td><td>南京</td><td>TCP</td><td>5</td><td>1357</td></tr>
+<tr><td>广州</td><td>武汉</td><td>TCP</td><td>4</td><td>1254</td></tr>
+<tr><td>南京</td><td>武汉</td><td>TCP</td><td>9</td><td>1187</td></tr>
+<tr><td>上海</td><td>武汉</td><td>TCP</td><td>6</td><td>833</td></tr>
+<tr><td>武汉</td><td>武汉</td><td>UDP</td><td>8</td><td>773</td></tr>
+<tr><td>北京海淀</td><td>武汉</td><td>TCP</td><td>12</td><td>576</td></tr>
+<tr><td>北京</td><td>武汉</td><td>TCP</td><td>8</td><td>435</td></tr>
+<tr><td>武汉</td><td>北京</td><td>TCP</td><td>7</td><td>360</td></tr>
+<tr><td>武汉</td><td>北京海淀</td><td>TCP</td><td>8</td><td>328</td></tr>
+<tr><td>杭州</td><td>武汉</td><td>TCP</td><td>5</td><td>260</td></tr>
+<tr><td>临汾</td><td>武汉</td><td>TCP</td><td>3</td><td>158</td></tr>
+<tr><td>武汉</td><td>临汾</td><td>TCP</td><td>3</td><td>151</td></tr>
+<tr><td>武汉</td><td>武汉</td><td>TCP</td><td>2</td><td>93</td></tr>
+<tr><td>武汉</td><td>杭州</td><td>TCP</td><td>2</td><td>82</td></tr>
+<tr><td>北京金融街</td><td>武汉</td><td>TCP</td><td>1</td><td>52</td></tr>
+<tr><td>武汉</td><td>北京金融街</td><td>TCP</td><td>1</td><td>41</td></tr></tbody>
+    </table>
+    <h2>IP 地理位置来源</h2>
+    <table>
+      <thead><tr><th>IP</th><th>地点</th><th>纬度</th><th>经度</th><th>来源</th><th>说明</th></tr></thead>
+      <tbody><tr><td>93.184.216.10</td><td>武汉</td><td>30.5928</td><td>114.3055</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.11</td><td>香港</td><td>22.3964</td><td>114.109</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.12</td><td>贵阳</td><td>26.6475</td><td>106.6301</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.13</td><td>郑州</td><td>34.7472</td><td>113.625</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.14</td><td>荃湾</td><td>22.3699</td><td>114.114</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.15</td><td>郑州</td><td>34.7472</td><td>113.625</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.16</td><td>广州</td><td>23.1317</td><td>113.266</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.17</td><td>南京</td><td>32.0589</td><td>118.7738</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.18</td><td>上海</td><td>31.2222</td><td>121.4581</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.19</td><td>武汉</td><td>30.5454</td><td>114.342</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.20</td><td>上海</td><td>31.2222</td><td>121.4581</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.21</td><td>北京</td><td>39.9042</td><td>116.407</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.22</td><td>杭州</td><td>30.2943</td><td>120.1663</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.23</td><td>临汾</td><td>36.6934</td><td>110.94</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.24</td><td>广州</td><td>23.1181</td><td>113.2539</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.25</td><td>北京海淀</td><td>39.9794</td><td>116.338</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.26</td><td>北京海淀</td><td>40.0045</td><td>116.329</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.27</td><td>北京海淀</td><td>40.0045</td><td>116.329</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.28</td><td>北京金融街</td><td>39.9072</td><td>116.357</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.29</td><td>北京</td><td>39.9042</td><td>116.4073</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.30</td><td>杭州</td><td>30.2943</td><td>120.1663</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.31</td><td>北京</td><td>39.911</td><td>116.395</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.32</td><td>北京海淀</td><td>40.0045</td><td>116.329</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.33</td><td>北京</td><td>39.9042</td><td>116.407</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.34</td><td>北京海淀</td><td>40.0045</td><td>116.329</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.35</td><td>北京</td><td>39.9042</td><td>116.407</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.36</td><td>上海</td><td>31.2304</td><td>121.474</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.37</td><td>武汉</td><td>30.6155</td><td>114.255</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.38</td><td>北京</td><td>39.911</td><td>116.395</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.39</td><td>北京海淀</td><td>40.0045</td><td>116.329</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.40</td><td>北京海淀</td><td>40.0045</td><td>116.329</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.41</td><td>南京</td><td>32.0584</td><td>118.796</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.42</td><td>南京</td><td>32.0584</td><td>118.796</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.43</td><td>北京海淀</td><td>40.0045</td><td>116.329</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.44</td><td>南京</td><td>32.0584</td><td>118.796</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr>
+<tr><td>93.184.216.45</td><td>北京海淀</td><td>40.0045</td><td>116.329</td><td>override</td><td>open-source synthetic demo address; not captured from a real host</td></tr></tbody>
+    </table>
+  </main>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>计算机网络流量分析</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>计算机网络流量分析</h1>
+      <p id="status">正在加载</p>
+    </div>
+    <button id="refreshBtn" type="button">刷新</button>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <section class="panel">
+        <h2>抓包</h2>
+        <label>网卡
+          <select id="ifaceSelect"></select>
+        </label>
+        <div class="split">
+          <label>数量
+            <input id="captureCount" type="number" min="1" max="1000" value="20">
+          </label>
+          <label>秒数
+            <input id="captureTimeout" type="number" min="1" max="300" value="20">
+          </label>
+        </div>
+        <label>实时滑动窗口（最新 100 个 IPv4 包，满窗后旧包自动挤出）
+          <input id="liveMaxPackets" type="number" min="100" max="100" value="100">
+        </label>
+        <label>过滤
+          <input id="captureFilter" value="ip">
+        </label>
+        <button id="captureBtn" type="button">开始抓包</button>
+        <div class="live-actions">
+          <button id="liveStartBtn" type="button">实时开始</button>
+          <button id="liveStopBtn" type="button" class="secondary">实时停止</button>
+        </div>
+        <p id="liveStatus" class="inline-status">实时状态：未启动</p>
+      </section>
+
+      <section class="panel">
+        <h2>分析</h2>
+        <label>PCAP 文件
+          <select id="pcapSelect"></select>
+        </label>
+        <label class="checkline">
+          <input id="resolveOnline" type="checkbox" checked>
+          <span>在线解析公网 IP（推荐）</span>
+        </label>
+        <p class="inline-status">仅 geo_overrides.csv 中的 IP 会离线定位；其余公网 IP 需勾选在线解析。</p>
+        <label class="checkline">
+          <input id="publicOnly" type="checkbox" checked>
+          <span>地图隐藏纯内网/组播流量</span>
+        </label>
+        <button id="analyzeBtn" type="button">分析并生成地图</button>
+        <button id="mapBtn" type="button">重新生成地图</button>
+      </section>
+
+      <section class="panel">
+        <h2>地理位置</h2>
+        <div id="geoEditor" class="geo-editor"></div>
+        <button id="saveGeoBtn" type="button">保存位置配置</button>
+      </section>
+    </aside>
+
+    <section class="content">
+      <section class="metrics">
+        <div class="metric"><span>IPv4 包</span><strong id="packetMetric">0</strong></div>
+        <div class="metric"><span>IP 数量</span><strong id="ipMetric">0</strong></div>
+        <div class="metric"><span>地点</span><strong id="locationMetric">0</strong></div>
+        <div class="metric"><span>流向</span><strong id="flowMetric">0</strong></div>
+      </section>
+
+      <nav class="tabs">
+        <button class="active" data-tab="map" type="button">流量地图</button>
+        <button data-tab="pci" type="button">PCI</button>
+        <button data-tab="ips" type="button">IP 统计</button>
+        <button data-tab="flows" type="button">流向</button>
+      </nav>
+
+      <section id="tab-map" class="tab-panel active">
+        <div class="map-toolbar">
+          <strong>ECharts 流量地图</strong>
+          <span id="mapHint">圆点表示地点，连线表示地点间发送量</span>
+        </div>
+        <div id="echartsMap"></div>
+        <details class="fallback-map">
+          <summary>查看后端生成的备用 SVG 地图</summary>
+          <iframe id="mapFrame" title="流量地图" src="/outputs/traffic_map.html"></iframe>
+        </details>
+      </section>
+      <section id="tab-pci" class="tab-panel">
+        <div id="pciTable" class="table-wrap"></div>
+      </section>
+      <section id="tab-ips" class="tab-panel">
+        <div id="ipTable" class="table-wrap"></div>
+      </section>
+      <section id="tab-flows" class="tab-panel">
+        <div id="flowTable" class="table-wrap"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="/static/echarts.min.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>

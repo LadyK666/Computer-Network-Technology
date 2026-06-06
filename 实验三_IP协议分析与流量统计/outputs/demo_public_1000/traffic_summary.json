@@ -1,0 +1,239 @@
+{
+  "pcap": "实验三_IP协议分析与流量统计/outputs/demo_public_1000.pcap",
+  "packet_count": 1000,
+  "ip_count": 36,
+  "top_received_ips": [
+    {
+      "ip": "93.184.216.10",
+      "sent_packets": 475,
+      "received_packets": 525,
+      "sent_bytes": 159092,
+      "received_bytes": 92956,
+      "total_packets": 1000,
+      "total_bytes": 252048
+    },
+    {
+      "ip": "93.184.216.12",
+      "sent_packets": 260,
+      "received_packets": 191,
+      "sent_bytes": 33592,
+      "received_bytes": 21501,
+      "total_packets": 451,
+      "total_bytes": 55093
+    },
+    {
+      "ip": "93.184.216.11",
+      "sent_packets": 149,
+      "received_packets": 186,
+      "sent_bytes": 39703,
+      "received_bytes": 110362,
+      "total_packets": 335,
+      "total_bytes": 150065
+    },
+    {
+      "ip": "93.184.216.14",
+      "sent_packets": 32,
+      "received_packets": 27,
+      "sent_bytes": 9174,
+      "received_bytes": 7314,
+      "total_packets": 59,
+      "total_bytes": 16488
+    },
+    {
+      "ip": "93.184.216.13",
+      "sent_packets": 23,
+      "received_packets": 18,
+      "sent_bytes": 3803,
+      "received_bytes": 10503,
+      "total_packets": 41,
+      "total_bytes": 14306
+    },
+    {
+      "ip": "93.184.216.15",
+      "sent_packets": 8,
+      "received_packets": 7,
+      "sent_bytes": 1343,
+      "received_bytes": 3799,
+      "total_packets": 15,
+      "total_bytes": 5142
+    },
+    {
+      "ip": "93.184.216.20",
+      "sent_packets": 1,
+      "received_packets": 6,
+      "sent_bytes": 40,
+      "received_bytes": 240,
+      "total_packets": 7,
+      "total_bytes": 280
+    },
+    {
+      "ip": "93.184.216.17",
+      "sent_packets": 6,
+      "received_packets": 5,
+      "sent_bytes": 1067,
+      "received_bytes": 1357,
+      "total_packets": 11,
+      "total_bytes": 2424
+    },
+    {
+      "ip": "93.184.216.18",
+      "sent_packets": 4,
+      "received_packets": 5,
+      "sent_bytes": 741,
+      "received_bytes": 1094,
+      "total_packets": 9,
+      "total_bytes": 1835
+    },
+    {
+      "ip": "93.184.216.19",
+      "sent_packets": 4,
+      "received_packets": 4,
+      "sent_bytes": 534,
+      "received_bytes": 239,
+      "total_packets": 8,
+      "total_bytes": 773
+    }
+  ],
+  "top_flows": [
+    {
+      "src_ip": "93.184.216.10",
+      "dst_ip": "93.184.216.11",
+      "protocol": "TCP",
+      "packets": 186,
+      "bytes": 110362
+    },
+    {
+      "src_ip": "93.184.216.11",
+      "dst_ip": "93.184.216.10",
+      "protocol": "TCP",
+      "packets": 149,
+      "bytes": 39703
+    },
+    {
+      "src_ip": "93.184.216.12",
+      "dst_ip": "93.184.216.10",
+      "protocol": "TCP",
+      "packets": 260,
+      "bytes": 33592
+    },
+    {
+      "src_ip": "93.184.216.10",
+      "dst_ip": "93.184.216.12",
+      "protocol": "TCP",
+      "packets": 191,
+      "bytes": 21501
+    },
+    {
+      "src_ip": "93.184.216.10",
+      "dst_ip": "93.184.216.13",
+      "protocol": "TCP",
+      "packets": 18,
+      "bytes": 10503
+    },
+    {
+      "src_ip": "93.184.216.14",
+      "dst_ip": "93.184.216.10",
+      "protocol": "TCP",
+      "packets": 32,
+      "bytes": 9174
+    },
+    {
+      "src_ip": "93.184.216.10",
+      "dst_ip": "93.184.216.14",
+      "protocol": "TCP",
+      "packets": 27,
+      "bytes": 7314
+    },
+    {
+      "src_ip": "93.184.216.13",
+      "dst_ip": "93.184.216.10",
+      "protocol": "TCP",
+      "packets": 23,
+      "bytes": 3803
+    },
+    {
+      "src_ip": "93.184.216.10",
+      "dst_ip": "93.184.216.15",
+      "protocol": "TCP",
+      "packets": 7,
+      "bytes": 3799
+    },
+    {
+      "src_ip": "93.184.216.10",
+      "dst_ip": "93.184.216.16",
+      "protocol": "TCP",
+      "packets": 3,
+      "bytes": 1639
+    },
+    {
+      "src_ip": "93.184.216.10",
+      "dst_ip": "93.184.216.17",
+      "protocol": "TCP",
+      "packets": 5,
+      "bytes": 1357
+    },
+    {
+      "src_ip": "93.184.216.15",
+      "dst_ip": "93.184.216.10",
+      "protocol": "TCP",
+      "packets": 8,
+      "bytes": 1343
+    },
+    {
+      "src_ip": "93.184.216.16",
+      "dst_ip": "93.184.216.10",
+      "protocol": "TCP",
+      "packets": 2,
+      "bytes": 1150
+    },
+    {
+      "src_ip": "93.184.216.10",
+      "dst_ip": "93.184.216.18",
+      "protocol": "TCP",
+      "packets": 5,
+      "bytes": 1094
+    },
+    {
+      "src_ip": "93.184.216.17",
+      "dst_ip": "93.184.216.10",
+      "protocol": "TCP",
+      "packets": 6,
+      "bytes": 1067
+    },
+    {
+      "src_ip": "93.184.216.18",
+      "dst_ip": "93.184.216.10",
+      "protocol": "TCP",
+      "packets": 4,
+      "bytes": 741
+    },
+    {
+      "src_ip": "93.184.216.19",
+      "dst_ip": "93.184.216.10",
+      "protocol": "UDP",
+      "packets": 4,
+      "bytes": 534
+    },
+    {
+      "src_ip": "93.184.216.10",
+      "dst_ip": "93.184.216.20",
+      "protocol": "TCP",
+      "packets": 6,
+      "bytes": 240
+    },
+    {
+      "src_ip": "93.184.216.10",
+      "dst_ip": "93.184.216.19",
+      "protocol": "UDP",
+      "packets": 4,
+      "bytes": 239
+    },
+    {
+      "src_ip": "93.184.216.21",
+      "dst_ip": "93.184.216.10",
+      "protocol": "TCP",
+      "packets": 4,
+      "bytes": 227
+    }
+  ]
+}
